@@ -1,0 +1,63 @@
+code,group,name
+7203,EXP,Toyota Motor
+7267,EXP,Honda Motor
+7201,EXP,Nissan Motor
+7270,EXP,Subaru
+7269,EXP,Suzuki Motor
+7261,EXP,Mazda Motor
+6758,EXP,Sony Group
+6501,EXP,Hitachi
+6752,EXP,Panasonic Holdings
+6954,EXP,Fanuc
+6861,EXP,Keyence
+8035,EXP,Tokyo Electron
+6857,EXP,Advantest
+6367,EXP,Daikin Industries
+6981,EXP,Murata Manufacturing
+6762,EXP,TDK
+7741,EXP,Hoya
+7751,EXP,Canon
+6902,EXP,Denso
+6273,EXP,SMC
+6301,EXP,Komatsu
+7011,EXP,Mitsubishi Heavy Industries
+4063,EXP,Shin-Etsu Chemical
+6146,EXP,Disco
+7974,EXP,Nintendo
+5108,EXP,Bridgestone
+6503,EXP,Mitsubishi Electric
+6594,EXP,Nidec
+7733,EXP,Olympus
+4543,EXP,Terumo
+9432,DOM,NTT
+9433,DOM,KDDI
+9434,DOM,SoftBank Corp
+9531,DOM,Tokyo Gas
+9532,DOM,Osaka Gas
+9501,DOM,Tokyo Electric Power
+9503,DOM,Kansai Electric Power
+9020,DOM,East Japan Railway
+9022,DOM,Central Japan Railway
+9021,DOM,West Japan Railway
+8801,DOM,Mitsui Fudosan
+8802,DOM,Mitsubishi Estate
+3382,DOM,Seven & i Holdings
+8267,DOM,Aeon
+2914,DOM,Japan Tobacco
+4661,DOM,Oriental Land
+9735,DOM,Secom
+1925,DOM,Daiwa House Industry
+1928,DOM,Sekisui House
+9064,DOM,Yamato Holdings
+9202,DOM,ANA Holdings
+9201,DOM,Japan Airlines
+7532,DOM,Pan Pacific International
+8233,DOM,Takashimaya
+9843,DOM,Nitori Holdings
+2413,DOM,M3
+4689,DOM,LY Corporation
+8306,FIN,Mitsubishi UFJ Financial Group
+8316,FIN,Sumitomo Mitsui Financial Group
+8411,FIN,Mizuho Financial Group
+8766,FIN,Tokio Marine Holdings
+8591,FIN,ORIX
