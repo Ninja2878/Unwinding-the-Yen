@@ -1,0 +1,61 @@
+series,ranking,end,ret_pct,z
+Yen,top_raw,1998-10-09,13.969,7.234
+Yen,top_raw,2008-10-24,9.370,5.448
+Yen,top_raw,1998-06-19,8.715,6.198
+Yen,top_raw,2024-08-05,6.567,5.880
+Yen,top_raw,1995-03-07,6.292,6.022
+Yen,top_raw,2008-03-17,5.999,4.839
+Yen,top_raw,1998-09-01,5.845,3.579
+Yen,top_raw,2009-01-12,5.768,2.803
+Yen,top_raw,1995-05-26,5.426,3.798
+Yen,top_raw,1997-05-12,5.320,5.735
+Yen,top_z,1998-10-09,13.969,7.234
+Yen,top_z,1998-06-19,8.715,6.198
+Yen,top_z,2020-03-09,4.538,6.031
+Yen,top_z,1995-03-07,6.292,6.022
+Yen,top_z,2024-08-05,6.567,5.880
+Yen,top_z,1997-05-12,5.320,5.735
+Yen,top_z,2008-10-24,9.370,5.448
+Yen,top_z,2008-03-17,5.999,4.839
+Yen,top_z,2007-08-17,4.013,4.579
+Yen,top_z,2015-08-24,4.800,4.555
+Swiss franc,top_raw,2015-01-16,17.882,21.901
+Swiss franc,top_raw,2008-12-18,9.053,5.402
+Swiss franc,top_raw,1995-03-07,8.055,6.490
+Swiss franc,top_raw,1995-09-22,6.396,3.531
+Swiss franc,top_raw,2009-03-19,6.037,3.083
+Swiss franc,top_raw,1992-08-24,5.382,3.187
+Swiss franc,top_raw,1992-09-30,5.374,2.975
+Swiss franc,top_raw,1995-05-26,5.222,2.931
+Swiss franc,top_raw,2011-08-10,5.051,3.314
+Swiss franc,top_raw,2022-11-14,4.956,4.405
+Swiss franc,top_z,2015-01-16,17.882,21.901
+Swiss franc,top_z,1995-03-07,8.055,6.490
+Swiss franc,top_z,2008-12-18,9.053,5.402
+Swiss franc,top_z,2022-06-22,4.136,4.848
+Swiss franc,top_z,2019-06-24,2.780,4.514
+Swiss franc,top_z,2024-08-05,3.729,4.429
+Swiss franc,top_z,2022-11-14,4.956,4.405
+Swiss franc,top_z,2008-03-17,4.288,4.150
+Swiss franc,top_z,2020-03-09,2.832,3.977
+Swiss franc,top_z,2022-05-24,3.129,3.974
+Carry portfolio (loss),top_raw,2008-10-08,20.724,10.281
+Carry portfolio (loss),top_raw,2020-03-09,10.251,7.475
+Carry portfolio (loss),top_raw,2008-12-17,8.769,2.259
+Carry portfolio (loss),top_raw,2002-08-14,8.522,4.199
+Carry portfolio (loss),top_raw,2015-01-16,8.374,6.377
+Carry portfolio (loss),top_raw,2015-08-24,7.860,4.087
+Carry portfolio (loss),top_raw,2009-01-12,7.725,1.894
+Carry portfolio (loss),top_raw,2024-08-05,7.675,5.614
+Carry portfolio (loss),top_raw,2002-09-23,7.468,3.505
+Carry portfolio (loss),top_raw,2011-08-10,7.149,5.079
+Carry portfolio (loss),top_z,2008-10-08,20.724,10.281
+Carry portfolio (loss),top_z,2020-03-09,10.251,7.475
+Carry portfolio (loss),top_z,2015-01-16,8.374,6.377
+Carry portfolio (loss),top_z,2024-08-05,7.675,5.614
+Carry portfolio (loss),top_z,2011-08-10,7.149,5.079
+Carry portfolio (loss),top_z,2007-08-16,6.094,4.950
+Carry portfolio (loss),top_z,2024-06-04,5.625,4.949
+Carry portfolio (loss),top_z,2013-06-03,5.583,4.861
+Carry portfolio (loss),top_z,2022-11-14,6.318,4.576
+Carry portfolio (loss),top_z,2019-08-06,6.011,4.547

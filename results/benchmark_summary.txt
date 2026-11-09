@@ -1,0 +1,3 @@
+Yen from 1990-01-01: 4-day move 6.57%, vol-scaled z 5.88; rank 8 of 8780 overlapping windows; rank 4 among separate episodes (raw), 5 (vol-scaled)
+Swiss franc from 1990-01-01: 4-day move 3.73%, vol-scaled z 4.43; rank 54 of 8780 overlapping windows; rank 22 among separate episodes (raw), 6 (vol-scaled)
+Carry portfolio (loss) from 1999-02-01: 4-day move 7.67%, vol-scaled z 5.61; rank 15 of 6498 overlapping windows; rank 8 among separate episodes (raw), 4 (vol-scaled)

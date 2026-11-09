@@ -1,0 +1,12 @@
+currency,rate_pct,CAR_pct,sample
+JPY,0.166,6.569,"F factor, 11 floating currencies"
+CHF,1.193,3.540,"F factor, 11 floating currencies"
+SEK,3.585,1.481,"F factor, 11 floating currencies"
+NOK,4.760,-1.271,"F factor, 11 floating currencies"
+AUD,4.460,-1.329,"F factor, 11 floating currencies"
+NZD,5.550,0.042,"F factor, 11 floating currencies"
+KRW,3.540,1.273,"F factor, 11 floating currencies"
+ZAR,8.450,-1.563,"F factor, 11 floating currencies"
+INR,6.750,-0.218,"F factor, 11 floating currencies"
+MXN,11.400,-3.512,"F factor, 11 floating currencies"
+BRL,10.500,-1.645,"F factor, 11 floating currencies"

@@ -1,0 +1,3 @@
+n=2048 days (2016-11-08 to 2024-12-31, excl. 5 Aug 2024)
+dlogVIX = -0.487 + -3.725 r + -1.865 min(r,0); R2 0.503; residual sd 5.56
+5 Aug 2024: S&P -3.04%, VIX log change 50.0, predicted 16.5, residual 6.0 sd, rank 5 of 2049

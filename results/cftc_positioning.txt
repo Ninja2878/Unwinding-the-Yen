@@ -1,0 +1,24 @@
+Five most negative net positions (contracts) to 30 Jul 2024:
+  2007-06-26 -188,077 (-53.4% of open interest)
+  2024-07-02 -184,223 (-52.7% of open interest)
+  2024-07-09 -182,033 (-52.2% of open interest)
+  2024-04-23 -179,919 (-53.5% of open interest)
+  2024-06-25 -173,900 (-51.1% of open interest)
+Five most negative net positions as a share of open interest:
+  2013-12-24 -60.1% (-143,822)
+  2013-12-31 -58.2% (-135,228)
+  2014-01-07 -56.0% (-128,868)
+  2013-12-17 -56.0% (-130,223)
+  2013-12-03 -54.4% (-133,383)
+
+Exploratory regression, weekly 1993-2023 (n=1618): max 4-day yen gain in next 20 trading days on net position (% of OI) and past 20-day yen return
+  all weeks: slope on positioning 0.0065 (t 4.51), R2 0.027
+  every 4th week (n=405): slope 0.0073 (t 2.44)
+  9 Jul 2024 report: fitted 1.55%, actual 6.57%
+            n  mean_max4d  share_above_3pct
+quintile                                   
+1         324        1.77             12.96
+2         323        1.65             11.76
+3         324        1.73             14.20
+4         323        2.16             20.74
+5         324        2.19             22.84

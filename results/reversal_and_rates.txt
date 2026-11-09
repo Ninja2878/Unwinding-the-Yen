@@ -1,0 +1,2 @@
+Cross-sectional slope of abnormal returns on rates, 6-9 Aug 2024: 0.432 (event window: -0.690)
+US 2-year yield change 30 Jul -> 5 Aug 2024: -0.46 points; implied yen move over a 2-year horizon: 0.92%
