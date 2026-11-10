@@ -4,7 +4,7 @@ code,name,group,market_beta,yen_beta,event_ret_pct,aug6_ret_pct
 7201,Nissan Motor,EXP,1.188,-0.108,-23.466,8.586
 7270,Subaru,EXP,1.296,-1.010,-31.492,9.228
 7269,Suzuki Motor,EXP,1.063,-0.307,-26.667,15.706
-7261,Mazda Motor,EXP,1.328,-1.076,-25.828,9.022
+7261,Mazda Motor,EXP,1.328,-1.076,-25.828,9.023
 6758,Sony Group,EXP,0.888,0.297,-18.953,8.734
 6501,Hitachi,EXP,1.572,-0.259,-18.380,15.373
 6752,Panasonic Holdings,EXP,1.127,-0.427,-19.574,5.532
@@ -61,3 +61,18 @@ code,name,group,market_beta,yen_beta,event_ret_pct,aug6_ret_pct
 8411,Mizuho Financial Group,FIN,1.165,-0.137,-29.094,5.726
 8766,Tokio Marine Holdings,FIN,1.457,0.257,-37.824,14.983
 8591,ORIX,FIN,1.021,-0.039,-28.703,16.991
+8308,Resona Holdings,FIN,1.153,0.011,-20.980,-1.886
+8309,Sumitomo Mitsui Trust Group,FIN,1.147,0.274,-25.089,8.097
+7186,Yokohama Financial Group,FIN,0.985,-0.406,-25.693,1.507
+7182,Japan Post Bank,FIN,0.754,0.180,-15.902,7.753
+6178,Japan Post Holdings,FIN,0.912,0.406,-23.602,12.514
+8604,Nomura Holdings,FIN,1.449,0.634,-32.486,10.580
+8601,Daiwa Securities Group,FIN,1.386,0.228,-37.228,8.132
+8750,Dai-ichi Life Holdings,FIN,1.191,-0.370,-28.746,5.226
+8725,MS&AD Insurance Group,FIN,1.274,0.139,-27.810,12.481
+8630,Sompo Holdings,FIN,1.296,-0.041,-30.444,12.662
+8795,T&D Holdings,FIN,1.365,-1.185,-31.033,7.552
+8331,Chiba Bank,FIN,1.088,-0.344,-35.548,3.326
+8354,Fukuoka Financial Group,FIN,1.142,-0.131,-25.007,3.782
+5831,Shizuoka Financial Group,FIN,0.910,0.299,-23.614,6.131
+8473,SBI Holdings,FIN,1.138,-0.534,-29.623,9.059

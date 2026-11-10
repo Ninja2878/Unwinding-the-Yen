@@ -40,3 +40,18 @@ Dec 2013 (-60.1% of OI): largest four-day yen rise in following 60 trading days 
 ## Reversal and rate repricing
 Cross-sectional slope of abnormal returns on rates, 6-9 Aug 2024: +0.432 (corr 0.86); JPY -1.53, MXN +3.30. 6 Aug alone: +0.138
 US 2-year Treasury yield: 4.35 (30 Jul) -> 3.89 (5 Aug), -0.46 points; x 2 years = ~0.9% implied yen move (~1.1% if Japanese 2y yields rose 0.1)
+## Draft 4 additions
+Cross-section with risk controls (11 currencies; sensitivities estimated Jan-Jun 2024 controlling for F):
+ event: rate only -0.690 (t -5.29); + S&P beta -0.622 (t -4.66; beta t -1.39); + VIX beta -0.615 (t -4.98; beta t 1.82)
+ reversal 6-9 Aug: rate only +0.432 (t 4.95); + S&P beta +0.418 (t 4.24); + VIX beta +0.426 (t 4.35)
+Permutation (100,000 shuffles of rates; seed 12345 in Python): 11 currencies p = 0.00004; excl JPY, CHF p = 0.003
+Non-overlapping placebo (blocks aligned on event window, 2023-24): rank 1 of 124
+Rate bound, 30 Jul -> 5 Aug 2024 (US Treasury; JGB from MoF):
+ 1y US -0.44, JP -0.017, spread -0.42 -> 0.42%; 2y US -0.46, JP -0.109, spread -0.35 -> 0.70%; 5y US -0.41, JP -0.222, spread -0.19 -> 0.94%; US-only 5y -> 2.05%
+Firms (77; financials expanded to 20): DOM -15.18 (implied -13.42), EXP -22.89 (-23.36), FIN -28.15 (-22.79); TOPIX ETF -19.56
+ groups: EXP -7.71 (t -4.20), FIN -12.97 (t -6.63), R2 .40; betas: mkt -14.23 (t -5.99), yen +3.28 (t 1.97), R2 .40; both: EXP -2.96 (t -1.61), FIN -8.33 (t -4.70), R2 .53 (HC1)
+ Aug 6 rebound: DOM +7.10, EXP +10.76, FIN +7.41
+Positioning robustness (share of weeks followed by spike, most-short fifth vs most-long fifth):
+ H10 >2%: 17.0 vs 23.2; H10 >3%: 5.3 vs 10.8; H20 >2%: 37.8 vs 43.0; H20 >4%: 5.6 vs 11.1; H40 >3%: 23.5 vs 35.3; H40 >4%: 11.1 vs 19.5
+Rate bound 10 Jul -> 30 Jul 2024: 1y US -0.23, JP +0.053, spread -0.283 -> 0.28%; 2y US -0.27, JP +0.031, spread -0.301 -> 0.60%; 5y US -0.21, JP -0.013, spread -0.197 -> 0.99%
+Reversal slope on 6 Aug alone: +0.138

@@ -1,0 +1,9 @@
+Horizon 10 days, threshold 2%: spike frequency after most-short fifth 17.0%, after most-long fifth 23.2%
+Horizon 10 days, threshold 3%: spike frequency after most-short fifth 5.3%, after most-long fifth 10.8%
+Horizon 10 days, threshold 4%: spike frequency after most-short fifth 2.5%, after most-long fifth 5.3%
+Horizon 20 days, threshold 2%: spike frequency after most-short fifth 37.8%, after most-long fifth 43.0%
+Horizon 20 days, threshold 3%: spike frequency after most-short fifth 13.0%, after most-long fifth 22.9%
+Horizon 20 days, threshold 4%: spike frequency after most-short fifth 5.6%, after most-long fifth 11.1%
+Horizon 40 days, threshold 2%: spike frequency after most-short fifth 60.4%, after most-long fifth 64.7%
+Horizon 40 days, threshold 3%: spike frequency after most-short fifth 23.5%, after most-long fifth 35.3%
+Horizon 40 days, threshold 4%: spike frequency after most-short fifth 11.1%, after most-long fifth 19.5%

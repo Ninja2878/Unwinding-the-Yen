@@ -1,0 +1,15 @@
+Event window, rate only: rate slope -0.690 (t -5.29), R2 0.76
+Event window, rate + S&P beta: rate slope -0.622 (t -4.66), risk beta t -1.39, R2 0.80
+Event window, rate + VIX beta: rate slope -0.615 (t -4.97), risk beta t 1.81, R2 0.83
+Reversal 6-9 Aug, rate only: rate slope 0.432 (t 4.96), R2 0.73
+Reversal 6-9 Aug, rate + S&P beta: rate slope 0.418 (t 4.25), risk beta t 0.39, R2 0.74
+Reversal 6-9 Aug, rate + VIX beta: rate slope 0.426 (t 4.35), risk beta t -0.19, R2 0.73
+Permutation test (11 currencies): observed slope -0.690; share of 100,000 shuffles at least as negative 0.00004
+Permutation test (excl. JPY and CHF): observed slope -0.429; share of 100,000 shuffles at least as negative 0.00306
+Non-overlapping placebo: event window ranks 1 of 124
+2024-07-30 -> 2024-08-05, 1-year: US -0.44, Japan -0.017, spread -0.423; implied yen move 0.42% (US only: 0.44%)
+2024-07-30 -> 2024-08-05, 2-year: US -0.46, Japan -0.109, spread -0.351; implied yen move 0.70% (US only: 0.92%)
+2024-07-30 -> 2024-08-05, 5-year: US -0.41, Japan -0.222, spread -0.188; implied yen move 0.94% (US only: 2.05%)
+2024-07-10 -> 2024-07-30, 1-year: US -0.23, Japan +0.053, spread -0.283; implied yen move 0.28% (US only: 0.23%)
+2024-07-10 -> 2024-07-30, 2-year: US -0.27, Japan +0.031, spread -0.301; implied yen move 0.60% (US only: 0.54%)
+2024-07-10 -> 2024-07-30, 5-year: US -0.21, Japan -0.013, spread -0.197; implied yen move 0.98% (US only: 1.05%)
