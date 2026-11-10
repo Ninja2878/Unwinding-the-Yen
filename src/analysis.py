@@ -385,6 +385,101 @@ def run_reversal_and_rates(R):
     return lines
 
 
+# ------------------------------- 8. identification checks added in Draft 4
+def run_identification(R):
+    """Risk-controlled cross-section, permutation test, non-overlapping placebo,
+    rate-repricing bound and positioning robustness."""
+    rates = pd.read_csv(os.path.join(ROOT, "data", "rates_jul2024.csv")).set_index("currency")["rate_pct"]
+    x = rates.loc[FLOATERS].values
+    sp = log_returns(fred("SP500"))
+    vix = log_returns(fred("VIXCLS"))
+    REV = ["2024-08-06", "2024-08-07", "2024-08-08", "2024-08-09"]
+    rows = []
+    for c in FLOATERS:
+        d = pd.concat([R[c], R["F"], sp, vix], axis=1, keys=["y", "f", "sp", "vix"]).dropna()
+        est = d.loc[EST[0]:EST[1]]
+        one = np.ones(len(est))
+        a, b = ols(np.column_stack([one, est["f"]]), est["y"])["b"]
+        b_sp = ols(np.column_stack([one, est["f"], est["sp"]]), est["y"])["b"][2]
+        b_vix = ols(np.column_stack([one, est["f"], est["vix"]]), est["y"])["b"][2]
+        dd = pd.concat([R[c], R["F"]], axis=1, keys=["y", "f"]).dropna()
+        car = lambda days: 100 * (dd.loc[dd.index.isin(days), "y"] - a - b * dd.loc[dd.index.isin(days), "f"]).sum()
+        rows.append({"currency": c, "rate": rates[c], "beta_sp": b_sp, "beta_vix": b_vix,
+                     "car": car(EVENT), "rev": car(REV)})
+    T = pd.DataFrame(rows)
+    T.to_csv(os.path.join(OUT, "cross_section_risk_controls.csv"), index=False, float_format="%.5f")
+    one = np.ones(len(T))
+    lines = []
+    for lab, col in [("Event window", "car"), ("Reversal 6-9 Aug", "rev")]:
+        for name, X in [("rate only", [one, T["rate"]]), ("rate + S&P beta", [one, T["rate"], T["beta_sp"]]),
+                        ("rate + VIX beta", [one, T["rate"], T["beta_vix"]])]:
+            f = ols(np.column_stack(X), T[col])
+            lines.append(f"{lab}, {name}: rate slope {f['b'][1]:.3f} (t {f['t'][1]:.2f})"
+                         + (f", risk beta t {f['t'][2]:.2f}" if len(X) == 3 else "") + f", R2 {f['r2']:.2f}")
+    # permutation test
+    rng = np.random.default_rng(12345)
+    def slope(xx, yy):
+        return np.polyfit(xx, yy, 1)[0]
+    for lab, sub in [("11 currencies", T), ("excl. JPY and CHF", T[~T["currency"].isin(["JPY", "CHF"])])]:
+        obs = slope(sub["rate"].values, sub["car"].values)
+        perms = np.array([slope(rng.permutation(sub["rate"].values), sub["car"].values) for _ in range(100000)])
+        lines.append(f"Permutation test ({lab}): observed slope {obs:.3f}; share of 100,000 shuffles "
+                     f"at least as negative {np.mean(perms <= obs):.5f}")
+    # non-overlapping placebo, blocks aligned on the event window
+    ab = {}
+    for c in FLOATERS:
+        d = pd.concat([R[c], R["F"]], axis=1, keys=["y", "f"]).dropna().loc[EST[0]:EST[1]]
+        ab[c] = ols(np.column_stack([np.ones(len(d)), d["f"]]), d["y"])["b"]
+    panel = pd.concat([R[c] for c in FLOATERS] + [R["F"]], axis=1,
+                      keys=FLOATERS + ["F"]).dropna().loc["2023-01-01":"2024-12-31"]
+    abn = pd.DataFrame({c: panel[c] - ab[c][0] - ab[c][1] * panel["F"] for c in FLOATERS})
+    start = abn.index.get_loc("2024-07-31") % 4
+    blocks = [(abn.index[i + 3], slope(x, 100 * abn.iloc[i:i + 4].sum().values))
+              for i in range(start, len(abn) - 3, 4)]
+    bl = sorted(blocks, key=lambda t: t[1])
+    rank = [e for e, _ in bl].index("2024-08-05") + 1
+    lines.append(f"Non-overlapping placebo: event window ranks {rank} of {len(bl)}")
+    # rate-repricing bound: change in US-Japan spread x maturity, 30 Jul -> 5 Aug 2024
+    j = pd.read_csv(os.path.join(RAW, "jgb_yields.csv"), skiprows=1, na_values="-")
+    j["Date"] = pd.to_datetime(j["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
+    j = j.dropna(subset=["Date"]).set_index("Date")
+    for d0, d1 in [("2024-07-30", "2024-08-05"), ("2024-07-10", "2024-07-30")]:
+        for us, jp, n in [("DGS1", "1Y", 1), ("DGS2", "2Y", 2), ("DGS5", "5Y", 5)]:
+            u = fred(us)
+            du = u.loc[d1] - u.loc[d0]
+            dj = float(j.loc[d1, jp]) - float(j.loc[d0, jp])
+            lines.append(f"{d0} -> {d1}, {n}-year: US {du:+.2f}, Japan {dj:+.3f}, spread {du - dj:+.3f}; "
+                         f"implied yen move {-(du - dj) * n:.2f}% (US only: {-du * n:.2f}%)")
+    with open(os.path.join(OUT, "identification_checks.txt"), "w") as f:
+        f.write("\n".join(lines) + "\n")
+    return lines
+
+
+def run_positioning_robustness(R):
+    c = pd.read_csv(os.path.join(RAW, "cftc_jpy_legacy.csv"))
+    c["share"] = 100 * c["net"] / c["open_interest"]
+    J = R["JPY"]
+    jd, jv = J.index.tolist(), J.values
+    lines = []
+    for H in (10, 20, 40):
+        rows = []
+        for _, r in c[(c["report_date"] >= "1993-01-01") & (c["report_date"] <= "2023-12-31")].iterrows():
+            i = next((k for k, d in enumerate(jd) if d > r["report_date"]), None)
+            if i is None or i + H > len(jv) or i - 21 < 0:
+                continue
+            m4 = 100 * max(jv[i + k:i + k + 4].sum() for k in range(H - 3))
+            rows.append((r["share"], m4))
+        D = pd.DataFrame(rows, columns=["share", "m4"]).sort_values("share")
+        q = len(D) // 5
+        for thr in (2, 3, 4):
+            lo, hi = (D["m4"].iloc[:q] > thr).mean(), (D["m4"].iloc[-q:] > thr).mean()
+            lines.append(f"Horizon {H} days, threshold {thr}%: spike frequency after most-short fifth "
+                         f"{100 * lo:.1f}%, after most-long fifth {100 * hi:.1f}%")
+    with open(os.path.join(OUT, "positioning_robustness.txt"), "w") as f:
+        f.write("\n".join(lines) + "\n")
+    return lines
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     R = load_fx()
@@ -396,3 +491,5 @@ if __name__ == "__main__":
     print("\n".join(run_cftc(R)))
     print("\n".join(run_firms()))
     print("\n".join(run_reversal_and_rates(R)))
+    print("\n".join(run_identification(R)))
+    print("\n".join(run_positioning_robustness(R)))

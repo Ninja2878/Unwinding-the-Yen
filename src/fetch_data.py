@@ -28,8 +28,8 @@ FRED_DAILY = [
     "DTWEXAFEGS",
     # markets
     "VIXCLS", "SP500", "NIKKEI225",
-    # US two-year Treasury yield
-    "DGS2",
+    # US Treasury yields (1, 2 and 5 years)
+    "DGS1", "DGS2", "DGS5",
 ]
 FRED_RATES = [  # OECD 3-month interbank rates; immediate (call) rates for BRL and INR
     "IR3TIB01JPM156N", "IR3TIB01CHM156N", "IR3TIB01SEM156N", "IR3TIB01NOM156N",
@@ -54,6 +54,18 @@ def fred(series_id, start="1990-01-01", end="2024-12-31"):
     with open(out, "w") as f:
         f.write(r.text)
     time.sleep(0.5)
+
+
+def jgb():
+    """Japanese government bond yields from Japan's Ministry of Finance."""
+    out = os.path.join(RAW, "jgb_yields.csv")
+    if os.path.exists(out):
+        return
+    url = "https://www.mof.go.jp/english/policy/jgbs/reference/interest_rate/historical/jgbcme_all.csv"
+    r = requests.get(url, timeout=60)
+    r.raise_for_status()
+    with open(out, "wb") as f:
+        f.write(r.content)
 
 
 def cftc():
@@ -103,6 +115,8 @@ if __name__ == "__main__":
     print("FRED interest rates ...")
     for s in FRED_RATES:
         fred(s, start="2024-04-01", end="2024-07-31")
+    print("Japanese government bond yields ...")
+    jgb()
     print("CFTC ...")
     cftc()
     print("Yahoo Finance ...")

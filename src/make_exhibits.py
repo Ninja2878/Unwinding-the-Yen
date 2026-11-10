@@ -27,7 +27,18 @@ plt.rcParams.update({
 })
 
 
+# Titles and source notes are printed as text captions in the essay, so that
+# readers who extract text from the PDF can see them. Set to True to embed them.
+EMBED_TITLES = False
+
+
+def _layout(fig, rect):
+    fig.tight_layout(rect=rect if EMBED_TITLES else (0, 0, 1, 1))
+
+
 def title(fig, text, source):
+    if not EMBED_TITLES:
+        return
     fig.suptitle(text, x=0.02, ha="left", fontsize=10.5, color=INK, fontweight="bold")
     fig.text(0.02, 0.008, source, fontsize=7, color=INK2, va="bottom")
 
@@ -78,10 +89,10 @@ def exhibit1():
     a2.set_ylim(10, 41)
     a2.xaxis.set_major_formatter(mdates.DateFormatter("%d %b"))
     a2.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=mdates.MO))
-    title(fig, "Exhibit 1. The yen and the carry trade moved first; volatility followed",
+    title(fig, "Exhibit 1. The yen and the carry trade moved first; the volatility spike followed",
           "Source: FRED (DEXJPUS, DEXSZUS, DEXMXUS, DEXBZUS, NIKKEI225, VIXCLS); author's calculations.\n"
           "Shaded: event window, 31 Jul - 5 Aug 2024. Dotted lines: the intervention, BoJ and payroll dates.")
-    fig.tight_layout(rect=(0, 0.05, 1, 0.96))
+    _layout(fig, (0, 0.05, 1, 0.96))
     save(fig, "Exhibit 1 - sequencing.png")
 
 
@@ -105,7 +116,7 @@ def exhibit2():
     title(fig, "Exhibit 2. The ten largest carry crashes since 1999, scaled by volatility",
           "Separate episodes (window end dates at least 20 days apart). Carry portfolio as in Exhibit 1. "
           "Source: FRED; author's calculations.")
-    fig.tight_layout(rect=(0, 0.04, 1, 0.95))
+    _layout(fig, (0, 0.04, 1, 0.95))
     save(fig, "Exhibit 2 - historical benchmark.png")
 
 
@@ -134,7 +145,7 @@ def exhibit3():
     title(fig, "Exhibit 3. The higher a currency's interest rate, the more it fell",
           "Abnormal returns against the US dollar from the factor model (Section 4.1). Rates: OECD via FRED "
           "(call rate for BRL, INR).")
-    fig.tight_layout(rect=(0, 0.04, 1, 0.95))
+    _layout(fig, (0, 0.04, 1, 0.95))
     save(fig, "Exhibit 3 - cross-section.png")
 
 
@@ -167,7 +178,7 @@ def exhibit4():
     title(fig, "Exhibit 4. Domestically oriented firms also fell 15 per cent",
           "Mean log returns of 62 large Tokyo-listed firms. Implied = market beta x TOPIX move + yen beta x yen move,\n"
           "with betas estimated over Jan-Jun 2024. Source: Yahoo Finance, FRED; author's calculations.")
-    fig.tight_layout(rect=(0, 0.07, 1, 0.95))
+    _layout(fig, (0, 0.07, 1, 0.95))
     save(fig, "Exhibit 4 - firm level.png")
 
 
@@ -188,7 +199,7 @@ def exhibit5():
     title(fig, "Exhibit 5. Visible speculative short positions in the yen, 1993-2024",
           "Net non-commercial positions in CME yen futures, last report of each month (labels give weekly peaks).\n"
           "Source: CFTC Commitments of Traders, legacy futures-only report, contract 097741.")
-    fig.tight_layout(rect=(0, 0.07, 1, 0.95))
+    _layout(fig, (0, 0.07, 1, 0.95))
     save(fig, "Exhibit 5 - CFTC history.png")
 
 
@@ -235,7 +246,7 @@ def exhibit6():
             ha="center", va="center", fontsize=8.0, color=INK)
     title(fig, "Exhibit 6. How a modest shock became a large one",
           "Source: author, drawing on Brunnermeier and Pedersen (2009), Adrian and Shin (2010) and BIS (2024b).")
-    fig.tight_layout(rect=(0, 0.03, 1, 0.96))
+    _layout(fig, (0, 0.03, 1, 0.96))
     save(fig, "Exhibit 6 - feedback loop.png")
 
 
