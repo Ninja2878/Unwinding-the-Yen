@@ -10,7 +10,10 @@ The essay tests whether the market turmoil of 31 July to 5 August 2024 was a for
 | Historical benchmarking since 1990 (yen, franc) and 1999 (carry portfolio) | 4.2, Exhibit 2 | `benchmark_summary.txt`, `benchmark_top_episodes.csv` |
 | Cross-section of currencies against interest rates, with placebo | 4.3, Exhibit 3 | `cross_section.txt`, `cross_section.csv` |
 | VIX response to the S&P 500, 2016-2024 | 4.4 | `vix_regression.txt` |
-| 62 Japanese firms: exporters, domestic firms, financials | 4.5, Exhibit 4 | `firm_level.txt`, `firm_level.csv` |
+| 77 Japanese firms: exporters, domestic firms, financials | 4.5, Exhibit 4 | `firm_level.txt`, `firm_level.csv` |
+| Risk-controlled cross-section, permutation test, non-overlapping placebo, rate-repricing bound | 4.3-4.4 | `identification_checks.txt`, `cross_section_risk_controls.csv` |
+| Currency reversal, 6-9 August 2024 | 4.6 | `reversal_and_rates.txt` |
+| Positioning test robustness (horizons, thresholds) | 5.2 | `positioning_robustness.txt` |
 | CFTC yen positioning since 1986 and an exploratory early-warning test | 4.6, 5.2, Exhibit 5 | `cftc_positioning.txt`, `cftc_monthly.csv` |
 
 `results/RESULTS_REPORTED_IN_PAPER.md` lists every number quoted in the essay.
@@ -30,9 +33,10 @@ python src/make_exhibits.py   # redraws Exhibits 1-6 into exhibits/
 
 All data are public and were downloaded on 9 November 2026.
 
-* **FRED** (Federal Reserve Bank of St. Louis): Federal Reserve H.10 noon New York exchange rates, the dollar index against advanced foreign economies (DTWEXAFEGS), VIX, S&P 500, Nikkei 225 and OECD short-term interest rates.
+* **FRED** (Federal Reserve Bank of St. Louis): Federal Reserve H.10 noon New York exchange rates, US Treasury yields, the dollar index against advanced foreign economies (DTWEXAFEGS), VIX, S&P 500, Nikkei 225 and OECD short-term interest rates.
+* **Ministry of Finance, Japan**: daily Japanese government bond yields.
 * **CFTC** Commitments of Traders, legacy futures-only report, Japanese yen (CME contract 097741).
-* **Yahoo Finance** daily adjusted closes for the 62 firms in `data/firm_universe.csv` and the TOPIX ETF (1306.T).
+* **Yahoo Finance** daily adjusted closes for the 77 firms in `data/firm_universe.csv` and the TOPIX ETF (1306.T).
 
 Small files used directly are committed in `data/`: the 2024 daily series behind Exhibit 1, the 2024 CFTC positions, the July 2024 interest rates and the firm list.
 
